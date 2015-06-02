@@ -10,30 +10,25 @@ var {
   View,
 } = React;
 
-var WebViewApp = React.createClass({
+var waveExample = React.createClass({
 
   getInitialState: function() {
     return {boxOpen:false}
   },
-  componentDidMount: function() {
-    console.log('mounted');
-      },
   _onPress: function() {
-    console.log('starting animation');
-    // Animation.startAnimation(this.refs['this'], 800, 0, 'easeInOutQuad', {scaleXY: [5, 5]});
     LayoutAnimation.configureNext(animations.layout.easeInEaseOut);
     this.setState({boxOpen:!this.state.boxOpen})
      setTimeout(() => {
       LayoutAnimation.configureNext(animations.layout.easeInEaseOut);
       this.setState({boxOpen:!this.state.boxOpen})
-    }, 800);
+    }, 500);
 
   },
 
   render: function() {
     var boxStyle =  this.state.boxOpen === true ? 
     styles.boxOpen :
-    styles.boxClosed
+    styles.boxClosed;
 
     return (
 
@@ -60,13 +55,12 @@ var styles = StyleSheet.create({
     height: 30,
     backgroundColor: 'rgb(0, 188, 212)',
     overflow: 'hidden',
-     shadowOffset:{
-            width: 1,
-            height: 3,
-        },
-        shadowColor: 'black',
-        shadowOpacity: 0.5,
-
+    shadowOffset:{
+      width: 1,
+      height: 3,
+    },
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
   },
   text: {
     fontSize: 16,
@@ -93,18 +87,6 @@ var styles = StyleSheet.create({
 
 var animations = {
   layout: {
-    spring: {
-      duration: 750,
-      create: {
-        duration: 300,
-        type: LayoutAnimation.Types.easeInEaseOut,
-        property: LayoutAnimation.Properties.opacity,
-      },
-      update: {
-        type: LayoutAnimation.Types.spring,
-        springDamping: 400,
-      },
-    },
     easeInEaseOut: {
       duration: 300,
       create: {
@@ -119,4 +101,4 @@ var animations = {
   },
 };
 
-AppRegistry.registerComponent('materialui', () => WebViewApp);
+AppRegistry.registerComponent('materialui', () => waveExample);
