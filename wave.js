@@ -6,7 +6,7 @@ var {
   StyleSheet,
   LayoutAnimation,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } = React;
 
@@ -32,14 +32,14 @@ var waveExample = React.createClass({
 
     return (
 
-          <TouchableOpacity onPress={this._onPress}>
+          <TouchableWithoutFeedback onPress={this._onPress}>
             <View style={styles.container} >
               <Text style={styles.text}>
                 Button 
               </Text>
               <View ref='this' style={boxStyle}></View>
             </View>              
-          </TouchableOpacity>
+          </TouchableWithoutFeedback>
 
     );
   }
