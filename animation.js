@@ -17,10 +17,10 @@ var WebViewApp = React.createClass({
   },
   componentDidMount: function() {
     console.log('mounted');
-    // setTimeout(() => {
-    //   LayoutAnimation.configureNext(animations.layout.easeInEaseOut);
-    //   this.setState({boxOpen:!this.state.boxOpen})
-    // }, 0);
+     setTimeout(() => {
+       LayoutAnimation.configureNext(animations.layout.easeInEaseOut);
+       this.setState({boxOpen:!this.state.boxOpen})
+     }, 0);
   },
   _onPress: function() {
     console.log('starting animation');
@@ -53,7 +53,6 @@ var styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
     top:200,
     width: 200,
     height: 200,
@@ -105,7 +104,5 @@ var animations = {
     },
   },
 };
-
-// AppRegistry.registerComponent('WebViewApp', () => WebViewApp);
 
 AppRegistry.registerComponent('materialui', () => WebViewApp);
